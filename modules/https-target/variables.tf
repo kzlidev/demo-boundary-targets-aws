@@ -52,6 +52,11 @@ variable "allow_ssh_22_cidrs" {
   description = "List of CIDR blocks to allow SSH port 22 ingress"
 }
 
+variable "bastion_ssh_aws_key_pair_name" {
+  type        = string
+  description = "Bastion SSH key"
+}
+
 #variable "infra_aws" {
 #  type = object({
 #    vpc_cidr_block                   = string

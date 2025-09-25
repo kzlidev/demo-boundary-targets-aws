@@ -29,6 +29,7 @@ resource "aws_instance" "hashicat" {
   subnet_id              = var.subnet_id
   vpc_security_group_ids = [aws_security_group.cluster.id]
   iam_instance_profile   = aws_iam_instance_profile.boundary_https_ec2.name
+  key_name               = var.bastion_ssh_aws_key_pair_name
 
   tags = {
     Name = "${var.friendly_name_prefix}-web-instance"
