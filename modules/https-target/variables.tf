@@ -123,7 +123,13 @@ variable "auth_admin_login_name" {}
 
 variable "auth_admin_password" {}
 
+variable "auth_method_id" {}
+
 variable "allowed_principal_ids" {
   type        = list(string)
   description = "List of allowed principal IDs for the target"
 }
+
+variable "ami_name" {}
+
+variable "ami_owner" {}

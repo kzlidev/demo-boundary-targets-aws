@@ -3,18 +3,19 @@ terraform {
     aws = {
       source = "hashicorp/aws"
     }
-    boundary = {
-      source  = "hashicorp/boundary"
-      version = "1.3.1"
-    }
   }
 }
 
 provider "boundary" {
   addr                   = var.boundary_endpoint
+  auth_method_id         = var.auth_method_id
   auth_method_login_name = var.auth_admin_login_name
   auth_method_password   = var.auth_admin_password
-  auth_method_id         = var.auth_method_id
+}
+
+provider "vault" {
+  address = var.vault_addr
+  token   = var.vault_token
 }
 
 provider "aws" {

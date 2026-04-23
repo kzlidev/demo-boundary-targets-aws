@@ -41,8 +41,8 @@ resource "boundary_target" "https_user" {
   session_connection_limit = -1
   default_port             = 443
   # default_client_port      = 443
-  ingress_worker_filter    = "\"ingress\" in \"/tags/worker-type\""
-#  egress_worker_filter     = "\"egress\" in \"/tags/type\""
+#  ingress_worker_filter    = "\"ingress\" in \"/tags/worker-type\""
+  egress_worker_filter     = "\"egress\" in \"/tags/worker-type\""
   host_source_ids          = [
     boundary_host_set_static.https_servers.id
   ]

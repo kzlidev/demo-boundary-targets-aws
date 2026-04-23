@@ -40,7 +40,7 @@ resource "aws_security_group_rule" "rule_ssh_22" {
   from_port                = 22
   to_port                  = 22
   type                     = "ingress"
-  source_security_group_id = var.allow_https_80_443_security_groups[count.index]
+  source_security_group_id = var.allow_ssh_22_security_groups[count.index]
 }
 
 resource "aws_security_group_rule" "rule_ssh_22_cidr" {

@@ -1,26 +1,14 @@
 data "aws_ami" "ubuntu" {
-  owners      = ["099720109477", "513442679011"]
-  most_recent = true
-
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+    values = [var.ami_name]
   }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  filter {
-    name   = "architecture"
-    values = ["x86_64"]
-  }
-
   filter {
     name   = "state"
     values = ["available"]
   }
+  most_recent = true
+  owners      = [var.ami_owner]
 }
 
 resource "aws_instance" "hashicat" {
